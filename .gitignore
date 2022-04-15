@@ -1,0 +1,13 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+production.py
+db.sqlite3
+db.sqlite3-journal
+media
+poetry.lock
+.env
+/static
+static/

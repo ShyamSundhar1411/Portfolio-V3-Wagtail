@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class = "container">
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                {% image page.Profile_Pic original as bg_img %}
+                <div class="avatar" style="background-image:url('{{bg_img.url}}');"></div>
+                <div class="about-me">
+                    <p>Hello! I am <strong>{{page.Hero_Title}}</strong>. {{page.Hero_Summary}}</p><a class="btn btn-outline-primary" role="button" href="#">Hire me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock content %}
