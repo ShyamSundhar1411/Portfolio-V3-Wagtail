@@ -1,7 +1,10 @@
 from django.db import models
+from django.forms import Field
 from wagtail.core.models import Page
+from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.images.edit_handlers import ImageChooserPanel 
+from wagtail.images.edit_handlers import ImageChooserPanel
+ 
 
 # Create your models here.
 class BlogListingPage(Page):
@@ -11,3 +14,13 @@ class BlogListingPage(Page):
         ImageChooserPanel("Cover_Image"),
         FieldPanel("Headline_Text"),
     ]
+class Blog(Page):
+    Date_of_Creation = models.DateField("Published Date")
+    Title = models.CharField(max_length=500)
+    Content = RichTextField(blank = True)
+    content_panels = Page.content_panels +[
+            FieldPanel("Date_of_Creation"),
+            FieldPanel("Title"),
+            FieldPanel("Content",classname = "full"),
+        ]
+    template = "blog/blog_page.html"

@@ -8,11 +8,26 @@
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <h1 class="mb-3">{{page.Headline_Text}}</h1>
-          <h4 class="mb-3">Subheading</h4>
+          <h4 class="mb-3">Testing</h4>
         </div>
       </div>
     </div>
   </div>
+  <div class="row" style = "margin-top:10px;">
+      <div class="col">
+          {% for post in page.get_children %}
+          <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5 class="card-title">{{ post.title }}</h5>
+                  <p class="card-text">{{ post.specific.intro }}</p>
+                  <a href="{% pageurl post %}" class="btn btn-primary">Read Post</a>
+              </div>
+          </div>
+          {% empty %}
+          <h2>No blog posts</h2>
+          {% endfor %}
+      </div>
+    </div>
 </div>
 
 {% endblock %}
