@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% load wagtailimages_tags %} {% load wagtailcore_tags %} {% block content %}
+
+<div class="container">
+    {% image page.Cover_Image original as bg_img %}
+    <div
+    class="p-5 text-center bg-image rounded" style=" background-image: url('{{bg_img.url}}');height: 400px; ">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">{{page.Headline_Text}}</h1>
+          <h4 class="mb-3">Subheading</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
