@@ -24,7 +24,8 @@ class BlogListingPage(Page):
         return context
 class Blog(Page):
     Date_of_Creation = models.DateField("Published Date")
-    Title = models.CharField(max_length=500)
+    Summary = models.CharField(max_length = 500,default = "Hey this is dummy blog text")
+    Cover_Image = models.ForeignKey("wagtailimages.Image",blank = False,null = True,on_delete=models.SET_NULL)
     Content = StreamField([
         ('heading',blocks.CharBlock(classname = "Full Title")),
         ('paragraph',blocks.RichTextBlock()),
@@ -35,7 +36,8 @@ class Blog(Page):
     )
     content_panels = Page.content_panels +[
             FieldPanel("Date_of_Creation"),
-            FieldPanel("Title"),
+            FieldPanel("Summary"),
+            ImageChooserPanel("Cover_Image"),
             StreamFieldPanel("Content",classname = "full"),
         ]
     template = "blog/blog_page.html"

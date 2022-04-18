@@ -13,21 +13,24 @@
       </div>
     </div>
   </div>
-  <div class="row" style = "margin-top:10px;">
-      <div class="col">
-          {% for post in Blogs %}
-          <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                  <h5 class="card-title">{{ post.title }}</h5>
-                  <p class="card-text">{{ post.specific.intro }}</p>
-                  <a href="{% pageurl post %}" class="btn btn-primary">Read Post</a>
-              </div>
+  <section class="article-list">
+      <div class="container">
+          <div class="intro">
+              <h2 class="text-center">Latest Articles</h2>
           </div>
-          {% empty %}
-          <h2>No blog posts</h2>
-          {% endfor %}
+          <div class="row articles">
+            {% for post in Blogs %}
+            {% image post.specific.Cover_Image original as cover_img%}
+              <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="{{cover_img.url}}"></a>
+                  <h3 class="name">{{post.title}}</h3>{{post.specific.Date_of_Creation}}
+                  <p class="description">{{post.specific.Summary}}</p><a class="action" href="{% pageurl post %}"><i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            {% empty %}
+            <h1 class = "text-center">No Blogs</h1>
+            {% endfor %}
+          </div>
       </div>
-    </div>
+  </section>
 </div>
 
 {% endblock %}
