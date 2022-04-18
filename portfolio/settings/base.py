@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'blog',
+    'wagtailblocks',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -71,7 +72,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(PROJECT_DIR, 'templates'),
-            os.path.join(PROJECT_DIR,'blog/templates')
+            os.path.join(PROJECT_DIR,'blog/templates'),
+            os.path.join(PROJECT_DIR,'wagtailblocks/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
