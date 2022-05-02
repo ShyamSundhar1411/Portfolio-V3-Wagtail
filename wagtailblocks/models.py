@@ -2,10 +2,11 @@ from django.db import models
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 # Create your models here.
-class ResponsiveImageBlock(ImageChooserBlock):
+class ResponsiveImageBlock(blocks.StructBlock):
+    image = ImageChooserBlock()
+    image_caption = blocks.RichTextBlock(classname = "caption",required=False)
     class Meta:
         icon = "image"
-        template = "wagtailblocks/responsive_image_block.html"
 class CardBlock(blocks.StructBlock):
     image = ImageChooserBlock(required=False)
     title = blocks.CharBlock()

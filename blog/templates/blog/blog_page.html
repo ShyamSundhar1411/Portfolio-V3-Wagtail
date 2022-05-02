@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
 {% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-<div class = "container">
-    <h1 class = "text-center">{{page.title}}</h1>
-    {% for block in page.Content %}
-    {% include_block block %}
-    {% endfor %}
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
-</div>
+<section class="article-list">
+    <div class="container">
+        <section class="article-clean">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                        <div class="intro">
+                            <h1 class="text-center">{{page.title}}</h1>
+                            <p class="text-center"><span class="by">by</span> <a href="#">{{page.owner}}</a><span class="date">{{page.Date_of_Creation}}</span></p>
+                        </div>
+                        <div class="text">
+                            {% for block in page.Content %}
+                                {% if block.block_type == 'image' or block.block_type == 'responsive_image' %}
+                                <figure class="figure d-block">
+                                        {% image block.value.image height-500 width-1000 class="figure-img" %}
+                                        {% if block.value.image_caption %}
+                                            <figcaption class="figure-caption">{{block.value.image_caption}}</figcaption>
+                                        {% endif %}
+                                </figure>
+                                {% else %}
+                                    {% include_block block %}
+                                {% endif %}
+						{% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
 {% endblock %}
