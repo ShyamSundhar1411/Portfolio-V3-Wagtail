@@ -24,13 +24,13 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    
+    #Apps
     'home',
     'search',
     'blog',
     'wagtailblocks',
     'experience',
-
+    #Wagtail Configs
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -42,10 +42,11 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-
+    'wagtailcodeblock',
+    #Taggit
     'modelcluster',
     'taggit',
-
+    #Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -170,7 +171,40 @@ WAGTAILSEARCH_BACKENDS = {
         'BACKEND': 'wagtail.search.backends.database',
     }
 }
-
+WAGTAIL_CODE_BLOCK_LINE_NUMBERS = False
+WAGTAIL_CODE_BLOCK_LANGUAGES = (
+    ('bash', 'Bash/Shell'),
+    ('css', 'CSS'),
+    ('c', 'C'),
+    ('cpp', 'C++'),
+    ('dart', 'Dart'),
+    ('diff', 'diff'),
+    ('django', 'Django/Jinja2'),
+    ('docker', 'Docker'),
+    ('git', 'Git'),
+    
+    ('html', 'HTML'),
+    ('java', 'Java'),
+    ('javascript', 'Javascript'),
+    ('json', 'JSON'),
+    ('kotlin', 'Kotlin'),
+    ('markdown', 'Markdown'),
+    ('powershell', 'PowerShell'),
+    ('python', 'Python'),
+    ('r', 'R'),
+    ('jsx', 'React JSX'),
+    ('tsx', 'React TSX'),
+    ('regex', 'Regex'),
+    ('smarty', 'Smarty'),
+    ('solidity', 'Solidity (Ethereum)'),
+    ('toml', 'TOML'),
+    ('typescript', 'TypeScript'),
+    ('scss', 'SCSS'),
+    ('vim', 'vim'),
+    ('wiki', 'Wiki markup'),
+    ('yaml', 'YAML'),
+)
+WAGTAIL_CODE_BLOCK_THEME = 'okaidia'
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'

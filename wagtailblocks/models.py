@@ -1,6 +1,7 @@
 from django.db import models
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtailcodeblock.blocks import CodeBlock
 # Create your models here.
 class ResponsiveImageBlock(blocks.StructBlock):
     image = ImageChooserBlock()
@@ -15,4 +16,16 @@ class CardBlock(blocks.StructBlock):
 
     class Meta:
         icon = "placeholder"
-        template = "streamfieldblocks/card_block.html"
+        template = "wagtailblocks/card_block.html"
+class CustomCodeBlock(blocks.StructBlock):
+    Source_Code = CodeBlock(label='Source Code', default_language='django')
+    class Meta:
+        icon = "code"
+class TimelineBlock(blocks.StructBlock):
+    title = blocks.CharBlock(max_length=100)
+    text = blocks.TextBlock()
+    date = blocks.DateBlock()
+
+    class Meta:
+        icon = "placeholder"
+        template = "wagtailblocks/timeline_block.html"

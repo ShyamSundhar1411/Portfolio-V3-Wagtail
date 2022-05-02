@@ -2,16 +2,16 @@ from django.db import models
 from django.forms import Field
 from wagtail.core import blocks
 from wagtail.search import index
-from wagtailblocks.models import ResponsiveImageBlock,CardBlock
+from wagtailblocks.models import ResponsiveImageBlock,CardBlock,CustomCodeBlock
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel,StreamFieldPanel,MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images.blocks import ImageChooserBlock
-from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
-
+from modelcluster.fields import ParentalKey
+from wagtailcodeblock.blocks import CodeBlock
 # Create your models here.
 class BlogListingPage(Page):
     Cover_Image = models.ForeignKey("wagtailimages.Image",blank = False,null = True,related_name = "+",help_text = "Cover Image for the blog page",on_delete = models.SET_NULL)
@@ -43,6 +43,7 @@ class Blog(Page):
         ('responsive_image',ResponsiveImageBlock()),
         ('card',CardBlock()),
         ('image',ImageChooserBlock()),
+        ('code',CustomCodeBlock()),
         ],
     )
     search_fields = Page.search_fields + [
