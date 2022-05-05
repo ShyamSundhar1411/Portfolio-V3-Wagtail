@@ -4,6 +4,9 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
+{% for tag in page.tags.all %}
+    {{tag}}
+  {% endfor %}
 <section class="article-list">
     <div class="container">
         <section class="article-clean">

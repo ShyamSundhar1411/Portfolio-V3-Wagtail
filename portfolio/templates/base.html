@@ -1,9 +1,11 @@
 {% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailimages_tags %}
 {% load static %}
 {% load menu_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+    {% image settings.dynamicsettings.DynamicSettings.Site_Logo original as SiteLogo%}
     <head>
         <meta charset="utf-8" />
         <title>
@@ -15,6 +17,7 @@
                 {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
+        <link rel="shortcut icon" type="image/png" href="{{SiteLogo.url}}"/>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -36,7 +39,8 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
         <nav class="navbar navbar-dark navbar-expand-lg static-top bg-white portfolio-navbar gradient">
-            <div class="container"><a class="navbar-brand logo" href="/"><img src = "{% static 'Profile_Pic.png' %}" style = "height:35px;width:35px;"/>Shyam Sundhar</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            
+            <div class="container"><a class="navbar-brand logo" href="/"><img src = "{{ SiteLogo.url }}" style = "height:35px;width:35px;"/>{{ settings.dynamicsettings.DynamicSettings.Site_Name }}</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     
                         {% main_menu max_levels=1 template="menus/menu.html"%}

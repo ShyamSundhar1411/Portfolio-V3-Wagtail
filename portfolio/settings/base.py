@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'blog',
     'wagtailblocks',
     'experience',
+    'dynamicsettings',
     #Wagtail Configs
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.contrib.settings',
     'wagtail.core',
     'wagtailcodeblock',
     'wagtail.contrib.modeladmin', 

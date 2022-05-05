@@ -46,6 +46,7 @@ class Blog(Page):
         ('code',CustomCodeBlock()),
         ],
     )
+    parent_page_types = ['blog.BlogListingPage']
     search_fields = Page.search_fields + [
 		index.SearchField('Summary'),
 		index.SearchField('Content'),

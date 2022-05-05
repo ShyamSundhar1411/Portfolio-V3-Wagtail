@@ -15,7 +15,7 @@
                 {% image page.Profile_Pic original as bg_img %}
                 <div class="avatar" style="background-image:url('{{bg_img.url}}');"></div>
                 <div class="about-me">
-                    <p>Hello! I am <strong>{{page.Hero_Title}}</strong>. {{page.Hero_Summary|richtext}}</p><a class="btn btn-outline-primary" role="button" href="#">View My Works</a>
+                    <p>Hello! I am <strong>{{page.Hero_Title}}</strong>. {{page.Hero_Summary|richtext}}</p><a class="btn btn-outline-primary" role="button" href="{{ page.Button_Router.url }}">View My Works</a>
                 </div>
             </div>
         </section>
