@@ -25,19 +25,38 @@ class PortfolioPage(Page):
         context['project_pages'] = project_pages
         return context
     template = "experience/portfolio_page.html"
+
 class ProjectPageTag(TaggedItemBase):
     content_object = ParentalKey(
         'Project',
         related_name='tagged_items',
         on_delete=models.CASCADE,
     )
+class ProjectListingPage(Page):
+    Cover_Image = models.ForeignKey("wagtailimages.Image",blank = True,null = True,on_delete = models.SET_NULL)
+    Headline_Text = models.CharField(max_length = 500,help_text = "Headline Text")
+    content_panels = Page.content_panels+[
+        ImageChooserPanel("Cover_Image"),
+        FieldPanel("Headline_Text"),
+    ]
+    subpage_types = ['experience.Project']
+    template = "experience/project_listing_page.html"
+    def get_context(self,request):
+        context = super().get_context(request)
+        Projects = self.get_children().live().order_by('-first_published_at')
+        context['Projects'] = Projects
+        return context
 class Project(Page):
     Date_of_Creation = models.DateField("Published Date")
+    Summary = models.CharField(max_length = 500)
     Description = RichTextField()
     Cover_Image = models.ForeignKey('wagtailimages.Image',blank = True,null = True,on_delete = models.SET_NULL)
     Softwares_Used = ClusterTaggableManager(through=ProjectPageTag, blank=True)
     content_panels = Page.content_panels+[
+        FieldPanel('Summary'),
         FieldPanel('Date_of_Creation'),
         FieldPanel('Description'),
         ImageChooserPanel('Cover_Image'),
+        FieldPanel('Softwares_Used'),
     ]
+    parent_type = ['experience.ProjectListingPage']

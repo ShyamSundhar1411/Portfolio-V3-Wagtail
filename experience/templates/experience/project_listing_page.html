@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% load wagtailimages_tags %} 
+{% load wagtailcore_tags %} {% block content %}
+
+<div class="container">
+  <section class="article-list">
+    <div class="container">
+      <div class="intro">
+        <h2 class="text-center">Shyam's Project{{Projects.count|pluralize}}</h2>
+      </div>
+      {% for project in Projects %}
+      <div class="row articles container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                {% image project.specific.Cover_Image original as coverImg%}
+              <img
+                src="{{coverImg.url}}"
+                width="500px"
+                height="400px"
+              />
+            </div>
+            <div class="flip-card-back">
+                <h3 class="name">{{project.title}}</h3>{{proejct.specific.Date_of_Creation}}
+                <p class="description">{{project.specific.Summary}}</p>
+              {% for tag in project.specific.Softwares_Used.all %}
+                <p class = "description">{{tag}}</p>
+              {% endfor %}
+              <a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+            <h1 class = "text-center">No Projects</h1>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
