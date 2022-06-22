@@ -29,3 +29,10 @@ class TimelineBlock(blocks.StructBlock):
     class Meta:
         icon = "placeholder"
         template = "wagtailblocks/timeline_block.html"
+class SkillBarBlock(blocks.StructBlock):
+    Skill = blocks.CharBlock(max_length=100)
+    Percentage = blocks.IntegerBlock(max_value=100)
+    class Meta:
+        icon = "form"
+        template = "wagtailblocks/skill_bar.html"
+    

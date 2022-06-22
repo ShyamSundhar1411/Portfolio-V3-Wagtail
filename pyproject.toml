@@ -6,8 +6,10 @@ authors = ["ShyamSundhar1411 <clashwithchiefrpjyt@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-wagtail = "^2.16.2"
 wagtailcodeblock = "^1.25.0"
+wagtailmenus = "^3.0.2"
+Django = "3.2.13"
+wagtail = "2.16.2"
 
 [tool.poetry.dev-dependencies]
 

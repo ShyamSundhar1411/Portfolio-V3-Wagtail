@@ -216,3 +216,6 @@ WAGTAIL_CODE_BLOCK_THEME = 'okaidia'
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+WAGTAILADMIN_BASE_URL = "/admin"
+WAGTAIL_ENABLE_UPDATE_CHECK = False
+WAGTAIL_SITE_NAME = "Shyam's Portfolio"

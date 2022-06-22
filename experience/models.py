@@ -1,5 +1,5 @@
 from django.db import models
-from wagtailblocks.models import TimelineBlock
+from wagtailblocks.models import TimelineBlock,SkillBarBlock
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import RichTextField, StreamField
@@ -15,9 +15,13 @@ class PortfolioPage(Page):
     My_Timeline = StreamField([
         ("Timeline_Block", TimelineBlock()),
     ], null=True, blank=True)
+    My_Skills = StreamField([
+        ("Skill_Block",SkillBarBlock())],null = True,blank = True
+    )
     content_panels = Page.content_panels+[
         ImageChooserPanel('Cover_Image'),
-        StreamFieldPanel('My_Timeline')
+        StreamFieldPanel('My_Timeline'),
+        StreamFieldPanel("My_Skills")
     ]
     def get_context(self, request):
         context = super().get_context(request)

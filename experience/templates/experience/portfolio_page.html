@@ -1,26 +1,37 @@
 {% extends 'base.html' %} {% load static %} {% load wagtailimages_tags %} {% load wagtailcore_tags %} {% block content %}
-
-<div class="container">
-    {% image page.Cover_Image original as bg_img %}
-    <div
-    class="p-5 text-center bg-image rounded" style=" background-image: url('{{bg_img.url}}');height: 400px; ">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-      <div class="d-flex justify-content-center align-items-center h-100">
-      </div>
-    </div>
-</div>
-<section class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h2 class="ml-4 mb-3">Experience</h2>
+<div class = "container">
+    <div class="container">
+        {% image page.Cover_Image original as bg_img %}
+        <div
+        class="p-5 text-center bg-image rounded" style=" background-image: url('{{bg_img.url}}');height: 400px; ">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
         </div>
-        <div class="col-sm-12 col-md-8 offset-md-2">
-            <div class="row">
-                {% for block in page.My_Timeline %}
-                    {% include_block block %}
-                {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="text-center">My Timeline</h2>
+            </div>
+            <div class="col-sm-12 col-md-8 offset-md-2">
+                <div class="row">
+                    {% for block in page.My_Timeline %}
+                        {% include_block block %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</section>
+    <div class = "container">
+        <h2 class = "text-center">My Skills</h2>
+        <div class="row">
+            {% for block in page.My_Skills %}
+                <div class = "col-md-6 py-3">
+                    {% include_block block %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
