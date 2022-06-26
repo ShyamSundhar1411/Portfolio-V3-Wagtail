@@ -5,13 +5,17 @@
 }
 
 header .has-multiple-actions {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
 header .has-multiple-actions .actionbutton {
-    margin-inline-start: 10px;
+    margin-left: 10px;
 }
 
 header .has-multiple-actions .dropdown {
-    margin-inline-start: 10px;
+    margin-left: 10px;
 }

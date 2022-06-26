@@ -20,11 +20,11 @@
               <h2 class="text-center">Latest Blog{{Blogs.count|pluralize}}</h2>
           </div>
           <div class="row articles">
-            {% for post in Blogs %}
-            {% image post.specific.Cover_Image original as cover_img%}
+            {% for blog in Blogs %}
+            {% image blog.specific.Cover_Image original as cover_img%}
               <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" style = "height:50%;" src="{{cover_img.url}}"></a>
-                  <h3 class="name">{{post.title}}</h3>{{post.specific.Date_of_Creation}}
-                  <p class="description">{{post.specific.Summary}}</p><a class="action" href="{% pageurl post %}"><i class="fa fa-arrow-circle-right"></i></a>
+                  <h3 class="name">{{blog.title}}</h3>{{blog.specific.Date_of_Creation}}
+                  <p class="description">{{blog.specific.Summary}}</p><a class="action" href="{% pageurl blog %}"><i class="fa fa-arrow-circle-right"></i></a>
               </div>
             {% empty %}
             <h1 class = "text-center">No Blogs</h1>

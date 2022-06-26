@@ -1,4 +1,5 @@
 from django.db import models
+from portfolio.choices import *
 from wagtail.core.models import Page
 from taggit.models import TaggedItemBase
 from modelcluster.fields import ParentalKey
@@ -14,6 +15,7 @@ class HomePage(Page):
     Hero_Summary = RichTextField()
     Profile_Pic = models.ForeignKey("wagtailimages.Image",blank = False,null = True,on_delete=models.SET_NULL)
     Tags = ClusterTaggableManager(through=HomePageTag, blank=True) 
+    ColorScheme = models.IntegerField(default = 1,blank = True,choices = ColorSchemeChoices)
     Button_Router = models.ForeignKey(
         'wagtailcore.page',
         null=True,
@@ -26,6 +28,7 @@ class HomePage(Page):
         FieldPanel("Hero_Title"),
         FieldPanel("Hero_Summary",classname = "full"),
         FieldPanel("Tags"), 
+        FieldPanel("ColorScheme"),
         ImageChooserPanel("Profile_Pic"), 
         PageChooserPanel("Button_Router"),
     ]

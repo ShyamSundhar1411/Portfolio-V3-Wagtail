@@ -1,7 +1,10 @@
+from random import choices
 from django.db import models
+from portfolio.choices import *
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
+
 # Create your models here.
 class ResponsiveImageBlock(blocks.StructBlock):
     image = ImageChooserBlock()
@@ -32,6 +35,7 @@ class TimelineBlock(blocks.StructBlock):
 class SkillBarBlock(blocks.StructBlock):
     Skill = blocks.CharBlock(max_length=100)
     Percentage = blocks.IntegerBlock(max_value=100)
+    ColorScheme = blocks.IntegerBlock(max_value = 5,blank = True,default = 1,choices = ColorSchemeChoices)
     class Meta:
         icon = "form"
         template = "wagtailblocks/skill_bar.html"

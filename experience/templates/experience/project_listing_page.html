@@ -20,7 +20,17 @@ load wagtailcore_tags %} {% block content %}
   <div class="row">
     {% for project in Projects %}
     <div class = "col-md-4">
-      <div class = "card card-bg">
+      <div class = "card card-bg-{{project.specific.ColorScheme}} rounded-top rounded-bottom rounded-3">
+        {% image project.specific.Cover_Image original as bg_img %}
+        <img src="{{bg_img.url}}" class="card-img-top img-fluid rounded-3" >
+        <div class = "card-body">
+          <h5 class="card-title">{{project.title}}</h5>
+          <h6 class="card-subtitle mb-2">{{project.specific.Date_of_Creation}}</h6>
+          <p class="card-text">{{project.specific.Summary}}</p>
+          <hr/>
+          <h6>Softwares Used</h6>
+          <p>{{project.specific.Softwares_Used.all|join:",  "}}</p>
+        </div>
       </div>
     </div>
     {% empty %}

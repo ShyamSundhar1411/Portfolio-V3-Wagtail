@@ -1,4 +1,5 @@
 from django.db import models
+from portfolio.choices import *
 from wagtailblocks.models import TimelineBlock,SkillBarBlock
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
@@ -57,11 +58,13 @@ class Project(Page):
     Description = RichTextField()
     Cover_Image = models.ForeignKey('wagtailimages.Image',blank = True,null = True,on_delete = models.SET_NULL)
     Softwares_Used = ClusterTaggableManager(through=ProjectPageTag, blank=True)
+    ColorScheme = models.IntegerField(blank = True,default = 1,choices = ProjectColorChoices)
     content_panels = Page.content_panels+[
         FieldPanel('Summary'),
         FieldPanel('Date_of_Creation'),
         FieldPanel('Description'),
         ImageChooserPanel('Cover_Image'),
         FieldPanel('Softwares_Used'),
+        FieldPanel("ColorScheme")
     ]
     parent_type = ['experience.ProjectListingPage']

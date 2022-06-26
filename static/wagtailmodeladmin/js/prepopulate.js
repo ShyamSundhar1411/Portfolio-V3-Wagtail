@@ -1,1 +1,58 @@
-!function(e){e.fn.prepopulate=function(n,a,t){return this.each((function(){var d=e(this);d.data("_changed",!1),d.on("change",(function(){d.data("_changed",!0)})),d.val()||e(n.join(",")).on("keyup change focus",(function(){if(!d.data("_changed")){var o=[];e.each(n,(function(n,a){(a=e(a)).val().length>0&&o.push(a.val())})),d.val(URLify(o.join(" "),a,t))}}))}))}}(jQuery),function(e){e((function(){var n=e("#modeladmin-prepopulated-fields-constants").data("prepopulatedFields");e.each(n,(function(n,a){e(".empty-form .form-row .field-"+a.name+", .empty-form.form-row .field-"+a.name).addClass("prepopulated_field"),e(a.id).data("dependency_list",a.dependency_list).prepopulate(a.dependency_ids,a.maxLength,a.allowUnicode)}))}))}(jQuery);
+/* global URLify*/
+(function($) {
+    $.fn.prepopulate = function(dependencies, maxLength, allowUnicode) {
+        /*
+            Depends on urlify.js
+            Populates a selected field with the values of the dependent fields,
+            URLifies and shortens the string.
+            dependencies - array of dependent fields ids
+            maxLength - maximum length of the URLify'd string
+            allowUnicode - Unicode support of the URLify'd string
+        */
+        return this.each(function() {
+            var prepopulatedField = $(this);
+
+            var populate = function() {
+                // Bail if the field's value has been changed by the user
+                if (prepopulatedField.data('_changed')) {
+                    return;
+                }
+
+                var values = [];
+                $.each(dependencies, function(i, field) {
+                    field = $(field);
+                    if (field.val().length > 0) {
+                        values.push(field.val());
+                    }
+                });
+                prepopulatedField.val(URLify(values.join(' '), maxLength, allowUnicode));
+            };
+
+            prepopulatedField.data('_changed', false);
+            prepopulatedField.on('change', function() {
+                prepopulatedField.data('_changed', true);
+            });
+
+            if (!prepopulatedField.val()) {
+                $(dependencies.join(',')).on('keyup change focus', populate);
+            }
+        });
+    };
+}(jQuery));
+
+(function ($) {
+    $(function () {
+        var fields = $('#modeladmin-prepopulated-fields-constants').data('prepopulatedFields');
+        $.each(fields, function (index, field) {
+            $(
+              '.empty-form .form-row .field-' +
+                field.name +
+                ', .empty-form.form-row .field-' +
+                field.name
+            ).addClass('prepopulated_field');
+            $(field.id).data('dependency_list', field.dependency_list).prepopulate(
+                field.dependency_ids, field.maxLength, field.allowUnicode
+            );
+        });
+    });
+}(jQuery));
