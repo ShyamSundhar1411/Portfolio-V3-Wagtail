@@ -9,6 +9,7 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel,StreamFieldPanel,MultiFieldPanel
 # Create your models here.
+
 class PortfolioPage(Page):
     Cover_Image = models.ForeignKey('wagtailimages.Image',blank = False,null = True,on_delete = models.SET_NULL,help_text = "Background Image for header")
     
