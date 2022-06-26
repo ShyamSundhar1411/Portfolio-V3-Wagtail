@@ -43,7 +43,7 @@ class Blog(Page):
         ('responsive_image',ResponsiveImageBlock()),
         ('card',CardBlock()),
         ('image',ImageChooserBlock()),
-        ('code',CustomCodeBlock()),
+        ('code',CustomCodeBlock(label = "Code")),
         ],
     )
     parent_page_types = ['blog.BlogListingPage']

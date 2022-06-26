@@ -24,6 +24,7 @@ class CustomCodeBlock(blocks.StructBlock):
     Source_Code = CodeBlock(label='Source Code', default_language='django')
     class Meta:
         icon = "code"
+        label = "Code Block"
 class TimelineBlock(blocks.StructBlock):
     title = blocks.CharBlock(max_length=100)
     text = blocks.TextBlock()

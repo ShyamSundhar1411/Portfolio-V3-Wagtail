@@ -4,9 +4,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-{% for tag in page.tags.all %}
-    {{tag}}
-  {% endfor %}
 <section class="article-list">
     <div class="container">
         <section class="article-clean">
@@ -15,7 +12,7 @@
                     <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
                         <div class="intro">
                             <h1 class="text-center">{{page.title}}</h1>
-                            <p class="text-center"><span class="by">by</span> <a href="#">{{page.owner}}</a><span class="date">{{page.Date_of_Creation}}</span></p>
+                            <p class="text-center"><span class="by" style="font-size:22px;">by</span> <a href="#" style = "font-size:22px;">{{page.owner}}</a><span class="date">{{page.Date_of_Creation}}</span></p>
                         </div>
                         <div class="text">
                             {% for block in page.Content %}
@@ -32,7 +29,9 @@
 						{% endfor %}
                         </div>
                     </div>
-                </div>
             </div>
+        </secton>
+    </div>
 </section>
+
 {% endblock %}

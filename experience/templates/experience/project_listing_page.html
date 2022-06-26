@@ -27,6 +27,7 @@ load wagtailcore_tags %} {% block content %}
           <h5 class="card-title">{{project.title}}</h5>
           <h6 class="card-subtitle mb-2">{{project.specific.Date_of_Creation}}</h6>
           <p class="card-text">{{project.specific.Summary}}</p>
+          <a href="{{project.specific.url}}" class="card-link btn" style = "color:white;">Go To Project</a>
           <hr/>
           <h6>Softwares Used</h6>
           <p>{{project.specific.Softwares_Used.all|join:",  "}}</p>

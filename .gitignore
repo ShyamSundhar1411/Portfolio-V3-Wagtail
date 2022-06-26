@@ -11,4 +11,3 @@ poetry.lock
 .env
 /static
 static/
-# </DEFAULT>

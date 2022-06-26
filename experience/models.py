@@ -68,3 +68,4 @@ class Project(Page):
         FieldPanel("ColorScheme")
     ]
     parent_type = ['experience.ProjectListingPage']
+    template = "experience/project.html"
