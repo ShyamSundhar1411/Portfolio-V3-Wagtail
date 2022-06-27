@@ -163,7 +163,7 @@ STATICFILES_FINDERS = [
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '/portfolio/static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
