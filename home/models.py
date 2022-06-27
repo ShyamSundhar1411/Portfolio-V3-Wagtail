@@ -18,7 +18,7 @@ class HomePage(Page):
     Profile_Pic = models.ForeignKey("wagtailimages.Image",blank = False,null = True,on_delete=models.SET_NULL)
     Tags = ClusterTaggableManager(through=HomePageTag, blank=True) 
     ColorScheme = models.IntegerField(default = 1,blank = True,choices = ColorSchemeChoices)
-    Resume = models.ForeignKey("wagtaildocs.Document",blank = True,on_delete = models.SET_NULL,null = True)
+    Resume = models.URLField(blank = True,null = True)
     Button_Router = models.ForeignKey(
         'wagtailcore.page',
         null=True,
@@ -34,5 +34,5 @@ class HomePage(Page):
         FieldPanel("ColorScheme"),
         ImageChooserPanel("Profile_Pic"), 
         PageChooserPanel("Button_Router"),
-        DocumentChooserPanel('Resume')
+        FieldPanel('Resume')
     ]

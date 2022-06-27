@@ -3,12 +3,14 @@ from portfolio.choices import *
 from wagtailblocks.models import TimelineBlock,SkillBarBlock
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
+
 from wagtail.core.fields import RichTextField, StreamField
 from modelcluster.fields import ParentalKey
 from taggit.models import TaggedItemBase
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel,StreamFieldPanel,MultiFieldPanel
+
 # Create your models here.
 
 class PortfolioPage(Page):
