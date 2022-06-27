@@ -4,7 +4,7 @@ import dj_database_url
 import os
 env  = os.environ.copy()
 SECRET_KEY = env['SECRET_KEY']
-DEBUG = True
+DEBUG = False
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
