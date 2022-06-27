@@ -6,7 +6,7 @@ import os
 env = environ.Env()
 environ.Env.read_env()
 SECRET_KEY = env.str('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
