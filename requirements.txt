@@ -35,7 +35,7 @@ wagtail==2.16.2; python_version >= "3.7"
 wagtailcodeblock==1.25.0.2
 wagtailmenus==3.0.2; python_version >= "3.4"
 webencodings==0.5.1; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7"
-whitenoise==3.3.0; python_version >= "3.7"
+whitenoise==6.2.0; python_version >= "3.7"
 willow==1.4.1; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7"
 xlrd==2.0.1; python_version >= "3.7" and python_full_version < "3.0.0" or python_version >= "3.7" and python_full_version >= "3.6.0"
 xlsxwriter==3.0.3; python_version >= "3.7"
