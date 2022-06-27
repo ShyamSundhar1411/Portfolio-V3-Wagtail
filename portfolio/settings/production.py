@@ -7,7 +7,7 @@ SECRET_KEY = env['SECRET_KEY']
 DEBUG = True
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DATABASES['default'] = dj_database_url.config()
 DEFAULT_FILE_STORAGE = env['DEFAULT_FILE_STORAGE']
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
@@ -16,6 +16,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': env['API_KEY'],
     'API_SECRET': env['API_SECRET']
 }
+STATIC_ROOT = "/app/static/"
 ALLOWED_HOSTS =["*"]
 try:
     from .local import *
