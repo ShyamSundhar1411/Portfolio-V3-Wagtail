@@ -1,14 +1,12 @@
 from __future__ import absolute_import,unicode_literals
 from .base import *
 import environ
-import dj_database_url
 import os
 env = environ.Env()
 environ.Env.read_env()
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = False
 
-DATABASES['default'] = dj_database_url.config()
 DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
 CLOUDINARY_STORAGE = {
