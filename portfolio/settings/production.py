@@ -9,7 +9,6 @@ environ.Env.read_env()
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = False
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 DATABASES['default'] =  dj_database_url.config()
 DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
