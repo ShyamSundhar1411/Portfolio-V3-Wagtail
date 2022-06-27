@@ -7,7 +7,7 @@ SECRET_KEY = env['SECRET_KEY']
 DEBUG = False
 
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 COMPRESS_OFFLINE = True
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
