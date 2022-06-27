@@ -9,6 +9,4 @@ media
 poetry.lock
 .env
 /static
-static/
-/static/
 .env

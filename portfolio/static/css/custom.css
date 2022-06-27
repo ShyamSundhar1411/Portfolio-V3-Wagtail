@@ -1,0 +1,115 @@
+.bar {
+  height: 100%;
+  width: 2px;
+  background: #007bff;
+  position: relative;
+}
+
+.date-container {
+  position: absolute;
+  top: 50%;
+  left: -67px;
+  transform: translateY(-50%);
+}
+
+.dot {
+  height: 20px;
+  min-width: 20px;
+  background: #007bff;
+  border-radius: 50%;
+}
+
+
+.date {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .date-container {
+    left: 3px;
+  }
+}
+.card-bg-1 {
+  background: radial-gradient(#76b2fe, #b69efe);
+}
+#particles-js {
+  position:fixed !important;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.custom-color-1{
+      background-color: #5de6de;
+      background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+    }
+.custom-color-2{
+  background-color: #1fd1f9;
+  background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+}
+.custom-color-3{
+  background-color: #90d5ec;
+  background-image: linear-gradient(315deg, #90d5ec 0%, #fc575e 74%);
+}
+.custom-color-4{
+  background-color: #90d5ec;
+  background-image: linear-gradient(315deg, #90d5ec 0%, #fc575e 74%);
+}
+.custom-color-5{
+  background-color: #726cf8;
+  background-image: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);
+}
+.custom-text-color-1{
+    background: -webkit-linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.custom-text-color-2{
+  background: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.custom-text-color-3{
+  background: linear-gradient(315deg, #21d190 0%, #d65bca 74%);;
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.custom-text-color-4{
+  background: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.custom-text-color-5{
+  background: linear-gradient(315deg, #21d190 0%, #d65bca 74%);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-body{
+  color: white;
+}
+.card-bg-2{
+  background-color: #abe9cd;
+  background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+}
+.card-bg-3{
+  background-color: #63a4ff;
+  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+}
+.card-bg-4{
+  background-color: #734ae8;
+  background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%);
+}
+.card-bg-5{
+  background-color:#20bf55;
+  background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+}
+.custom-button{
+  position:relative;
+  z-index:9999;
+}
