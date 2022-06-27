@@ -23,7 +23,7 @@ load wagtailcore_tags %} {% block content %}
       <div class = "card card-bg-{{project.specific.ColorScheme}} rounded-top rounded-bottom rounded-3">
         {% image project.specific.Cover_Image original as bg_img %}
         <img src="{{bg_img.url}}" class="card-img-top img-fluid rounded-3" >
-        <div class = "card-body">
+        <div class = "card-body custom-card-body">
           <h5 class="card-title">{{project.title}}</h5>
           <h6 class="card-subtitle mb-2">{{project.specific.Date_of_Creation}}</h6>
           <p class="card-text">{{project.specific.Summary}}</p>

@@ -90,7 +90,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.card-body{
+.custom-card-body{
   color: white;
 }
 .card-bg-2{
