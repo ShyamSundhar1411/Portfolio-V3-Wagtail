@@ -12,7 +12,8 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO","https")
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env.str('CLOUD_NAME'),
     'API_KEY': env.str('API_KEY'),
-    'API_SECRET': env.str('API_SECRET')
+    'API_SECRET': env.str('API_SECRET'),
+    'API_PROXY': 'http://proxy.server:3128'
 }
 ALLOWED_HOSTS =["*"]
 try:
