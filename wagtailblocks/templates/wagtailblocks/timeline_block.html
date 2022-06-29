@@ -1,15 +1,10 @@
-<div class="col-1 position-relative">
-    <div class="bar"></div>
-    <div class="date-container d-flex flex-column flex-md-row align-items-center ">
-        <div class="date mr-0 mr-md-3">{{self.date|date: "M, Y"}}</div>
-        <div class="dot "></div>
-    </div>
-</div>
-<div class="col-11 py-4">
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5>{{ self.title }}</h5>
-            <p>{{ self.text }}</p>
+
+<div class="timeline-badge success"><i class="icon ion-laptop"></i></div>
+    <div class="timeline-panel">
+        <div class="timeline-heading">
+        <h4 class="timeline-title">{{self.title}}</h4>
+        <p><small class="text-muted"><i class="icon ion-android-calendar"></i>{{self.date|date:"M,Y"}}</small></p>
         </div>
+        <div class="timeline-body">
+        <p>{{self.text}}</p>  
     </div>
-</div>

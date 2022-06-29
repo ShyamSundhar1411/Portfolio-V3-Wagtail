@@ -27,6 +27,7 @@ class CustomCodeBlock(blocks.StructBlock):
         label = "Code Block"
 class TimelineBlock(blocks.StructBlock):
     title = blocks.CharBlock(max_length=100)
+    icon = ImageChooserBlock(required = False)
     text = blocks.TextBlock()
     date = blocks.DateBlock()
 
