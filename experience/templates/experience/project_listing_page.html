@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% load static %} {% load wagtailimages_tags %} {%
-load wagtailcore_tags %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load wagtailimages_tags %} 
+{% load wagtailcore_tags %} {% block content %}
 
 <div class="container">
   {% image page.Cover_Image original as bg_img %}
@@ -10,27 +10,31 @@ load wagtailcore_tags %} {% block content %}
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <h1 class="mb-3">{{page.Headline_Text}}</h1>
-          <h4 class="mb-3">Testing</h4>
         </div>
       </div>
     </div>
   </div>
   <br />
+  <p class = "badges">{{project.specific.Softwares_Used.all|join:",  "}}</p>
   <h1 class="text-center">Shyam's Project{{Projects.count|pluralize}}</h1>
   <div class="row">
     {% for project in Projects %}
     <div class = "col-md-4">
-      <div class = "card card-bg-{{project.specific.ColorScheme}} rounded-top rounded-bottom rounded-3">
+      <div class = "card card-bg-transparent rounded-top rounded-bottom rounded-3">
         {% image project.specific.Cover_Image original as bg_img %}
-        <img src="{{bg_img.url}}" class="card-img-top img-fluid rounded-3" >
-        <div class = "card-body custom-card-body">
+        <div class = "card-body">
           <h5 class="card-title">{{project.title}}</h5>
+            {% for tag in project.specific.Softwares_Used.all %}<span class="badge badge-dark" style = "margin-bottom:10px;margin-right:5px;">{{tag}}</span>{% endfor %}
           <h6 class="card-subtitle mb-2">{{project.specific.Date_of_Creation}}</h6>
-          <p class="card-text">{{project.specific.Summary}}</p>
-          <a href="{{project.specific.url}}" class="card-link btn" style = "color:white;">Go To Project</a>
           <hr/>
-          <h6>Softwares Used</h6>
-          <p>{{project.specific.Softwares_Used.all|join:",  "}}</p>
+          <div class = "container  py-2" style = "margin-bottom:10px;">
+            <img src="{{bg_img.url}}" class="card-img-top img-fluid rounded-3">
+          </div>
+          
+          <p class="card-text">{{project.specific.Summary|safe}}</p>
+          <div class = "container">
+            <a class="action" href="{{project.specific.url}}"><i class="fa fa-arrow-circle-right"></i></a>
+          </div>
         </div>
       </div>
     </div>

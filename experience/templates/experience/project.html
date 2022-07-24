@@ -15,7 +15,7 @@
                         <div class="text">
                             <figure class="figure d-block">
                                 {% image page.Cover_Image height-500 width-1000 class="figure-img" %}
-                                <figcaption class="figure-caption">Related Tags: {{page.Softwares_Used.all|join:",  "}}</figcaption>
+                                <figcaption class="figure-caption">{% for tag in page.Softwares_Used.all %}<span class="badge badge-dark" style = "margin-bottom:5px;margin-right:5px;">{{tag}}</span>{% endfor %}</figcaption>
                             </figure>
                             <p>{{page.Description | richtext}}</p>
                         </div>
